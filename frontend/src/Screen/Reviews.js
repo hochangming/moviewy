@@ -28,7 +28,7 @@ class Review extends Component{
     }
      componentDidMount(){
                 
-         Axios.get('/api/get').then((response)=>{
+         Axios.get('http://moviewy.herokuapp.com/api/get').then((response)=>{
             console.log(response.data);
             this.setState({
                 movieReviewList: response.data
@@ -62,7 +62,7 @@ class Review extends Component{
 
     updateReview =(Name) =>{
         const movieReview = this.state.updateReview;
-        Axios.put("/api/update",{
+        Axios.put("http://moviewy.herokuapp.com/api/update",{
             movieName: Name,
             movieReview: movieReview
         })
@@ -101,19 +101,7 @@ class Review extends Component{
                 </div>
             </div> 
             })} 
-        </div>
-            // <div> <Link to ="/">Back to results</Link> 
-            // </div>,
-            // this.state.movieReviewList.map((val)=>{
-            // return <div >
-            //     <div className="review-list">
-            //         <h1>Movie Name: <p>{val.movie_name}</p> </h1>
-            //         <div class="verticalLine">
-            //             <h1>Movie Review: <p className="movieReview">{val.movie_review}</p></h1>
-            //         </div>
-            //     </div>
-            // </div> 
-            // })
+        </div> 
         );
     }
     
