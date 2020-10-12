@@ -28,7 +28,7 @@ class Review extends Component{
     }
      componentDidMount(){
                 
-         Axios.get('http://localhost:5000/api/get').then((response)=>{
+         Axios.get('/api/get').then((response)=>{
             console.log(response.data);
             this.setState({
                 movieReviewList: response.data
@@ -50,7 +50,7 @@ class Review extends Component{
         const currentmovieReviewList= this.state.movieReviewList;
         const newMovieLists = currentmovieReviewList.filter(movie => movie.Name !== Name);
         this.setState({ movieReviewList: newMovieLists});
-         Axios.delete(`http://localhost:5000/api/delete/${Name}`).then(response=>{
+         Axios.delete(`/api/delete/${Name}`).then(response=>{
             console.log(response.status); 
             if(response.status === 'error'){
                 this.setState({movieReviewList: currentmovieReviewList});
@@ -62,7 +62,7 @@ class Review extends Component{
 
     updateReview =(Name) =>{
         const movieReview = this.state.updateReview;
-        Axios.put("http://localhost:5000/api/update",{
+        Axios.put("/api/update",{
             movieName: Name,
             movieReview: movieReview
         })
