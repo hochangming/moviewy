@@ -42,7 +42,7 @@ class Homescreen extends Component{
           const movieName = this.state.movieName;
           const movieReview = this.state.setReview;
           const movieRating = this.state.setRating;
-          const {data} =  Axios.post('/api/insert',
+          const {data} =  Axios.post('https://moviewy.herokuapp.com/api/insert',
           {movieName: movieName, movieReview: movieReview, movieRating: movieRating})  
           this.setState({
             movieName: '',
