@@ -26,11 +26,16 @@ app.get('/api/get',(req,res)=>{
         res.send(result);
     })
 })
-app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
-app.use(express.static(path.join(__dirname, '/../frontend/build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
-});
+if (process.env.NODE_ENV === 'production') {
+    // Exprees will serve up production assets
+    app.use(express.static('frontend/build'));
+  
+    // Express serve up index.html file if it doesn't recognize route
+    const path = require('path');
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    });
+  }
 app.post('/api/insert',(req,res)=>{ 
     const movieName = req.body.movieName;
     const movieReview = req.body.movieReview;
