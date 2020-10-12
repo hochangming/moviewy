@@ -28,7 +28,7 @@ class Review extends Component{
     }
      componentDidMount(){
                 
-         Axios.get('http://moviewy.herokuapp.com/api/get').then((response)=>{
+         Axios.get('http://localhost:5000/api/get').then((response)=>{
             console.log(response.data);
             this.setState({
                 movieReviewList: response.data
@@ -50,7 +50,7 @@ class Review extends Component{
         const currentmovieReviewList= this.state.movieReviewList;
         const newMovieLists = currentmovieReviewList.filter(movie => movie.Name !== Name);
         this.setState({ movieReviewList: newMovieLists});
-         Axios.delete(`/api/delete/${Name}`).then(response=>{
+         Axios.delete(`http://localhost:5000/api/delete/${Name}`).then(response=>{
             console.log(response.status); 
             if(response.status === 'error'){
                 this.setState({movieReviewList: currentmovieReviewList});
@@ -62,7 +62,7 @@ class Review extends Component{
 
     updateReview =(Name) =>{
         const movieReview = this.state.updateReview;
-        Axios.put("http://moviewy.herokuapp.com/api/update",{
+        Axios.put("http://localhost:5000/api/update",{
             movieName: Name,
             movieReview: movieReview
         })
@@ -101,7 +101,19 @@ class Review extends Component{
                 </div>
             </div> 
             })} 
-        </div> 
+        </div>
+            // <div> <Link to ="/">Back to results</Link> 
+            // </div>,
+            // this.state.movieReviewList.map((val)=>{
+            // return <div >
+            //     <div className="review-list">
+            //         <h1>Movie Name: <p>{val.movie_name}</p> </h1>
+            //         <div class="verticalLine">
+            //             <h1>Movie Review: <p className="movieReview">{val.movie_review}</p></h1>
+            //         </div>
+            //     </div>
+            // </div> 
+            // })
         );
     }
     

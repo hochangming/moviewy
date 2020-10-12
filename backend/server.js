@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
   
     // Express serve up index.html file if it doesn't recognize route
     
-    app.get('*', (req, res) => {
+    app.get('/api/*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     });
   } 
