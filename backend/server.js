@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     });
-  }
+  } 
 app.post('/api/insert',(req,res)=>{ 
     const movieName = req.body.movieName;
     const movieReview = req.body.movieReview;
