@@ -26,6 +26,11 @@ app.get('/api/get',(req,res)=>{
         res.send(result);
     })
 })
+app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
+app.use(express.static(path.join(__dirname, '/../frontend/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
+});
 app.post('/api/insert',(req,res)=>{ 
     const movieName = req.body.movieName;
     const movieReview = req.body.movieReview;
