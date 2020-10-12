@@ -1,7 +1,8 @@
 import React, { Component, Wrapper, useEffect} from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import StarRating from '../components/StarRating' 
+import StarRating from '../components/StarRating';
+import config from '../config'
 /**Make sure you aren’t calling the function when you pass it to the component:
  *   // Wrong: handleClick is called instead of passed as a reference!
  *   return <button onClick={this.handleClick()}>Click Me</button>
@@ -28,7 +29,7 @@ class Review extends Component{
     }
      componentDidMount(){
                 
-         Axios.get('https://moviewy.herokuapp.com/api/get').then((response)=>{
+         Axios.get(`${config.SERVER_URI}/api/get`).then((response)=>{
             console.log(response.data);
             this.setState({
                 movieReviewList: response.data
@@ -50,7 +51,7 @@ class Review extends Component{
         const currentmovieReviewList= this.state.movieReviewList;
         const newMovieLists = currentmovieReviewList.filter(movie => movie.Name !== Name);
         this.setState({ movieReviewList: newMovieLists});
-         Axios.delete(`https://moviewy.herokuapp.com/api/delete/${Name}`).then(response=>{
+         Axios.delete(`${config.SERVER_URI}/api/delete/${Name}`).then(response=>{
             console.log(response.status); 
             if(response.status === 'error'){
                 this.setState({movieReviewList: currentmovieReviewList});
@@ -62,7 +63,7 @@ class Review extends Component{
 
     updateReview =(Name) =>{
         const movieReview = this.state.updateReview;
-        Axios.put("https://moviewy.herokuapp.com/api/update",{
+        Axios.put(`${config.SERVER_URI}/api/update`,{
             movieName: Name,
             movieReview: movieReview
         })

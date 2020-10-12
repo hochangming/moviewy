@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Axios from 'axios';
 import { Link, BrowserRouter, Route} from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
+import config from '../config';
 class Homescreen extends Component{
     constructor() {
         super();
@@ -42,7 +43,7 @@ class Homescreen extends Component{
           const movieName = this.state.movieName;
           const movieReview = this.state.setReview;
           const movieRating = this.state.setRating;
-          const {data} =  Axios.post('https://moviewy.herokuapp.com/api/insert',
+          const {data} =  Axios.post(`${config.SERVER_URI}/api/insert`,
           {movieName: movieName, movieReview: movieReview, movieRating: movieRating})  
           this.setState({
             movieName: '',
