@@ -5,10 +5,10 @@ import cors from 'cors';
 import path from 'path';
 const app = express();
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'moviedatabase',
+    host: 'us-cdbr-east-02.cleardb.com',
+    user: 'b3011fc8ec7299',
+    password: 'a9544471',
+    database: 'heroku_2dc087c08c17036',
     port: "3306"
 
 });
