@@ -79,7 +79,7 @@ code {
 
  .go-to-review{
    display: block;
-   margin-top: -1rem;
+   margin-top: -1.9rem;
     font-weight: bold;
    font-size: large; 
    animation-name: flash;

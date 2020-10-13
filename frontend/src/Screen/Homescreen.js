@@ -108,7 +108,7 @@ class Homescreen extends Component{
                 emptyIcon={<i className="far fa-star"></i>}
                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                 fullIcon={<i className="fa fa-star"></i>}
-                color= "grey"
+                color= "blue"
                 activeColor= "red"
                 // activeColor="#ffd700"
               />
