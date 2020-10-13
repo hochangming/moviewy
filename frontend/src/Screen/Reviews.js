@@ -1,4 +1,4 @@
-import React, { Component, Wrapper, useEffect} from 'react';
+import React, { Component} from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import StarRating from '../components/StarRating';

@@ -5,8 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("/images/logo6.jpg"); 
-  background-color: #ffbb00;
+  background-image: url("/images/logo1.jpg"); 
 }
 
 code {
@@ -50,14 +49,7 @@ code {
   display: flex;
   justify-content: center;
 }
-.review-list{
-  /* display: flex;
-  flex-direction: column; 
-  border: 0.2rem solid;  
-  border-radius: 0.5rem; 
-  margin: 1rem; 
-  justify-content: center;
-  align-items: center;  */
+.review-list{ 
   width: 500px;
   height: 200px;
   border: 2px solid black;
@@ -68,9 +60,17 @@ code {
 }
  
  .back-to-result{
+   display:block;
     font-weight: bold;
    font-size: larger;
-   margin: 0.6rem;
+   margin: 0.5rem;  
+   margin-left: 0.6rem;
+   animation-name: flash;
+   animation-duration: 0.2s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-play-state: running;
  }
 
  a:hover{
@@ -78,19 +78,52 @@ code {
  }
 
  .go-to-review{
+   display: block;
+   margin-top: -1rem;
     font-weight: bold;
-   font-size: medium;
- }
+   font-size: large; 
+   animation-name: flash;
+   animation-duration: 0.2s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-play-state: running;
+ } 
  .movieReview{
    font-size: large;
- }
- /* .verticalLine {
-  border-left: thick solid black;
-  padding-left:11rem ;
-
-} */
- 
-
+ }  
 .text-danger{
   color: #ffbb00;
+}
+ 
+ .go-back{    
+   position: absolute;
+   top:40%;
+   right:47.7%;
+   text-align: center;   
+   margin-top: -1.3rem;
+   margin-left: 0.6rem;
+   font-size: larger;  
+   animation-name: flash;
+   animation-duration: 0.2s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-play-state: running;  
+  }
+  
+ .updateReview{  
+  display: flex;
+  justify-content: center; 
+
+ }
+ .flash {
+   
+   position: absolute;
+   top:30%;  
+}
+
+@keyframes flash {
+   from {color: red;}
+   to {color: black;}
 }

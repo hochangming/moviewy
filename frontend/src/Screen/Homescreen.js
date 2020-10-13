@@ -108,8 +108,8 @@ class Homescreen extends Component{
                 emptyIcon={<i className="far fa-star"></i>}
                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                 fullIcon={<i className="fa fa-star"></i>}
-                color= "blue"
-                activeColor= "#ffbb00"
+                color= "grey"
+                activeColor= "red"
                 // activeColor="#ffd700"
               />
               {errors.setRating != '' && <span style={{color: "red"}}>{this.state.errors.setRating}</span>}

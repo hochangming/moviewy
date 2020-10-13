@@ -4,6 +4,14 @@ import mysql from 'mysql';
 import cors from 'cors';
 import path from 'path';
 const app = express();
+// const db = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'password',
+//     database: 'moviedatabase',
+//     port: "3306"
+
+// });
 const db = mysql.createPool({
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'b3011fc8ec7299',
